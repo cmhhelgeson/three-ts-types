@@ -19,6 +19,7 @@
         "@definitelytyped/utils": "latest",
         "@types/stats.js": "*",
         "@types/webxr": "*",
+        "@webgpu/types": "^0.1.40",
         "dprint": "^0.45.1",
         "source-map-support": "^0.5.21",
         "typescript": "latest"

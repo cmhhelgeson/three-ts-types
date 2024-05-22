@@ -5,9 +5,12 @@ import { NodeOrType, NodeRepresentation, ShaderNodeObject } from "../shadernode/
 import StorageArrayElementNode from "../utils/StoargeArrayElementNode.js";
 import BufferNode from "./BufferNode.js";
 
+type StorageBufferAccessType = Omit<GPUBufferBindingType, 'uniform'>;
+
 export default class StorageBufferNode extends BufferNode {
     readonly isStorageBufferNode: true;
     bufferObject: boolean;
+    access: Omit<GPUBufferBindingType, 'uniform'>;
 
     constructor(
         value: StorageBufferAttribute | StorageInstancedBufferAttribute,
@@ -18,6 +21,8 @@ export default class StorageBufferNode extends BufferNode {
     element(indexNode: NodeRepresentation): ShaderNodeObject<StorageArrayElementNode>;
 
     setBufferObject(value: boolean): this;
+
+    setAccess(value: StorageBufferAccessType): this;
 }
 
 export const storage: (
